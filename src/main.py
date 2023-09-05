@@ -1,31 +1,24 @@
-from pathlib import Path
 import argparse
-import json
+from listdir import listdir
+from check import check
+from setDirs import setHome, setExt
 
-bloomParser = argparse.ArgumentParser()
-bloomParser.add_argument("path")
+
+bloomParser = argparse.ArgumentParser(description="Sync contents of two independent directories.")
+bloomParser.add_argument("-ls", "--listdir", type=listdir, help="list the contents of a directory")
+bloomParser.add_argument("-l", "--local", type=setHome, help="sets home directory")
+bloomParser.add_argument("-e", "--external", type=setExt, help="sets external directory")
 
 bloomArgs = bloomParser.parse_args()
 
-bloomTarget = Path(bloomArgs.path)
- 
-bloomDirs = json.loads(open("dirs.json", "r").read())
+if (bloomArgs.ls):
+    check()
+    listdir(bloomArgs.ls)
 
-homeDir = bloomDirs["home"]
-extDir = bloomDirs["external"]
+if (bloomArgs.l):
+    check()
+    setHome(bloomArgs.l)
 
-print(homeDir, extDir)
-
-if not bloomTarget.exists():
-    print("Directory does not exist!")
-    exit(1)
-
-if not (homeDir and extDir):
-    print("Home/external dirs not set, use flags --home or --ext to set respective dirs.")
-    exit(2)
-
-for entry, file in enumerate(bloomTarget.iterdir()):
-    print(str(file).removeprefix(str(bloomTarget)))
-    if entry > 10:
-        print("...continued")
-        exit(0)
+if (bloomArgs.e):
+    check()
+    setExt(bloomArgs.e)
