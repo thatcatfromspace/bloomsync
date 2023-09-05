@@ -1,4 +1,4 @@
 {
-    "local": "",
-    "external": ""
+    "home": "/opt/",
+    "external": "/usr/applications"
 }

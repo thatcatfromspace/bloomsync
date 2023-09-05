@@ -13,5 +13,5 @@ def listdir(path):
         elif entry < len(list(bloomTarget.iterdir()))/2:
             print(str(file).removeprefix(str(bloomTarget) + '/'))
         else:
-            print(f"... around", int(len(list(bloomTarget.iterdir()))/2), "more")
+            print(f"...around", int(len(list(bloomTarget.iterdir()))/2), "more")
             exit(0)

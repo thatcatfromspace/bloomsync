@@ -4,7 +4,7 @@ import json
 def check():
     bloomDirs = json.loads(open("../dirs.json", "r").read())
 
-    homeDir = bloomDirs["local"]
+    homeDir = bloomDirs["home"]
     extDir = bloomDirs["external"]
 
     if not (homeDir and extDir):

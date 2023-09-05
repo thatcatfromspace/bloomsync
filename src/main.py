@@ -3,22 +3,20 @@ from listdir import listdir
 from check import check
 from setDirs import setHome, setExt
 
+check()
 
 bloomParser = argparse.ArgumentParser(description="Sync contents of two independent directories.")
-bloomParser.add_argument("-ls", "--listdir", type=listdir, help="list the contents of a directory")
-bloomParser.add_argument("-l", "--local", type=setHome, help="sets home directory")
-bloomParser.add_argument("-e", "--external", type=setExt, help="sets external directory")
+bloomParser.add_argument("-ls", "--listdir", dest="path", help="list the contents of a directory")
+bloomParser.add_argument("-l", "--local", dest="localPath", help="sets home directory")
+bloomParser.add_argument("-e", "--ext", dest="extPath", help="sets external directory")
 
 bloomArgs = bloomParser.parse_args()
 
-if (bloomArgs.ls):
-    check()
-    listdir(bloomArgs.ls)
+if (bloomArgs.path):
+    listdir(bloomArgs.path)
 
-if (bloomArgs.l):
-    check()
-    setHome(bloomArgs.l)
+if (bloomArgs.localPath):
+    setHome(bloomArgs.localPath)
 
-if (bloomArgs.e):
-    check()
-    setExt(bloomArgs.e)
+if (bloomArgs.extPath):
+    setExt(bloomArgs.extPath)
