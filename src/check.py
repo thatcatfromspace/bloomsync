@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-def check():
+def check() -> None :
     bloomDirs = json.loads(open("../dirs.json", "r").read())
 
     homeDir = bloomDirs["home"]

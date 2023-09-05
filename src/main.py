@@ -1,7 +1,10 @@
 import argparse
+import tabnanny
 from listdir import listdir
 from check import check
 from setDirs import setHome, setExt
+
+tabnanny.check(all)
 
 check()
 
