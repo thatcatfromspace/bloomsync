@@ -7,7 +7,10 @@ def listdir(path):
         exit(1)
 
     for entry, file in enumerate(bloomTarget.iterdir()):
-        if entry < len(list(bloomTarget.iterdir()))/2:
+        if len(list(bloomTarget.iterdir())) < 2:
+            print(str(file).removeprefix(str(bloomTarget) + '/'))
+            exit(0)
+        elif entry < len(list(bloomTarget.iterdir()))/2:
             print(str(file).removeprefix(str(bloomTarget) + '/'))
         else:
             print(f"... around", int(len(list(bloomTarget.iterdir()))/2), "more")
