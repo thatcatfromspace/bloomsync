@@ -1,2 +1,3 @@
-# bloomsync
-CLI-based, automatic directory synchronizer 
+# BloomSync
+
+BloomSync is a automatic directory (content) syncronizer written in Python. 
