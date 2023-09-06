@@ -25,20 +25,22 @@ class BloomFilter:
         print(f"Togging positions {self.mod83()}, {self.mod89()} and {self.mod97()}")
         self.sum = 0
 
-    def searchBloomFilter(self, file: str) -> bool:
+    def searchBloomFilter(self, file: str) -> int:
         self.getSum(file)
         hash83 = self.mod83()
         hash89 = self.mod89()
         hash97 = self.mod97()
+        self.sum = 0
 
         if self.globalBloomFilter[hash83] and self.globalBloomFilter[hash89] \
           and self.globalBloomFilter[hash97]:
             
-            return True
+            return 2 # Definitely present 
         
+        elif self.globalBloomFilter[hash83] + self.globalBloomFilter[hash89] + self.globalBloomFilter[hash97] == 2:
+            return 1 # Probabilistic - may or may not be present: chance of FALSE POSITIVES!
 
-            
-    
-bloomFilter = BloomFilter()
-bloomFilter.getSum("dinesh.jpg")
-bloomFilter.insertBloomFilter()
+        else:
+            return 0 # Definitely not present 
+
+
