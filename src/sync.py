@@ -14,7 +14,7 @@ def moveLocaltoExt(filter: BloomFilter, verbose: bool) -> BloomFilter:
     
     with open("../logs.txt", "w+") as log:
         for file in localDir.iterdir():
-            print(str(file).removeprefix(str(localDir) + '/'))
+            # print(str(file).removeprefix(str(localDir) + '/'))
             filter.getSum(str(file).removeprefix(str(localDir) + '/'))
             filter.insertBloomFilter()
             if verbose:
@@ -24,10 +24,12 @@ def moveLocaltoExt(filter: BloomFilter, verbose: bool) -> BloomFilter:
             confident = filter.searchBloomFilter(str(file))
             if confident and file.exists():
                 log.write(f"[{datetime.now()}] {file} exists, replacing.")
+                print(str(extDir) + str(file).removeprefix(str(localDir)))
                 os.replace(str(Path(file)), str(extDir) + str(file).removeprefix(str(localDir)))
                 
             else:
                 log.write(f"[{datetime.now()}] {file} does not exist, syncing.")
+                print(str(extDir) + str(file).removeprefix(str(localDir)))
                 shutil.move(str(Path(file)), str(extDir) + str(file).removeprefix(str(localDir)))
     
     return filter
