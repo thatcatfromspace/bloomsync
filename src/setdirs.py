@@ -1,15 +1,18 @@
 import json
 from bloomfilter import BloomFilter
 from pathlib import Path
+from check import check
 
 def setHome(path, filter: BloomFilter, verbose: bool) -> BloomFilter:
-    with open("/home/dinesh/code/bloomsync/dirs.json", "r+") as bloomDir:
+    with open("../dirs.json", "r+") as bloomDir:
         try:
             inObj = json.loads(bloomDir.read())
             extDir = inObj["external"]
             if path == extDir and extDir != "":
                 raise Exception("Local and external directories cannot be the same.")
 
+            if not Path(path).exists():
+                raise Exception("Directory is invalid or does not exist.")
             
             bloomObj = {
                 "home": path,
@@ -20,12 +23,12 @@ def setHome(path, filter: BloomFilter, verbose: bool) -> BloomFilter:
             print("Local path", path, "added.")
 
             targetPath = Path(path)
-            for file in targetPath.iterdir():
+            for file in targetPath.iterdir(): 
                 filter.getSum(str(file))
                 filter.insertBloomFilter()
                 if verbose:
                     print(f"Hashed {str(file)}")
-
+            
             return filter
         
         except FileNotFoundError:
@@ -33,12 +36,15 @@ def setHome(path, filter: BloomFilter, verbose: bool) -> BloomFilter:
     
 def setExt(path):
     try:    
-        with open("/home/dinesh/code/bloomsync/dirs.json", "r+") as bloomDir:
+        with open("../dirs.json", "r+") as bloomDir:
             inObj = json.loads(bloomDir.read())
             homeDir = inObj["home"]
             if path == homeDir and homeDir != "":
                 raise Exception("Local and external directories cannot be the same.")
 
+            if not Path(path).exists():
+                raise Exception("Directory is invalid or does not exist.")
+            
             bloomObj = {
                 "home": homeDir,
                 "external": path
@@ -49,3 +55,4 @@ def setExt(path):
 
     except FileNotFoundError:
         raise Exception("Config JSON not found.")
+    

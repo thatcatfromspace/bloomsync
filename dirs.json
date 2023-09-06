@@ -1,4 +1,4 @@
 {
-    "home": "ass",
-    "external": "/home/dinesh"
+    "home": "/home/dinesh/code/local",
+    "external": "/home/dinesh/code/ext"
 }

@@ -1,7 +1,7 @@
 import argparse
 from listdir import listdir
 from check import check
-from setDirs import setHome, setExt
+from setdirs import setHome, setExt
 from bloomfilter import BloomFilter
 from sync import moveLocaltoExt
 
@@ -32,9 +32,7 @@ try:
         setExt(bloomArgs.extPath)
 
     if (bloomArgs.sync):
-        if not check():
-            exit(0)
-        moveLocaltoExt()
+        bloomFilterClient = moveLocaltoExt(bloomFilterClient, bloomArgs.verbose)
 
 except Exception as e:
     print(e)
