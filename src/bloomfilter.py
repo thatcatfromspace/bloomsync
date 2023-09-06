@@ -1,6 +1,10 @@
 from pathlib import Path
 
 class BloomFilter:
+    '''
+    The BloomFilter classes encompasses a standard 100 bucket bloom filter
+    with 3 hashing functions.
+    '''
     def __init__(self) -> None:
         self.globalBloomFilter = [0]*100
         self.sum = 0
@@ -22,7 +26,7 @@ class BloomFilter:
         self.globalBloomFilter[self.mod83()] = self.globalBloomFilter[self.mod89()] = \
           self.globalBloomFilter[self.mod97()] = 1
         
-        print(f"Togging positions {self.mod83()}, {self.mod89()} and {self.mod97()}")
+        # print(f"Toggling positions {self.mod83()}, {self.mod89()} and {self.mod97()}")
         self.sum = 0
 
     def searchBloomFilter(self, file: str) -> int:
