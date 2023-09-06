@@ -5,13 +5,14 @@ from setDirs import setHome, setExt
 from bloomfilter import BloomFilter
 from sync import moveLocaltoExt
 
+# import tabnanny
 # tabnanny.check("/bloomsync")
 
 check()
 
 bloomFilterClient: BloomFilter = BloomFilter()
 
-bloomParser = argparse.ArgumentParser(description="Sync contents of two independent directories.")
+bloomParser = argparse.ArgumentParser(description="Sync contents of two independent directories.", prog="bloomsync")
 bloomParser.add_argument("-ls", "--listdir", dest="path", help="list the contents of a directory.")
 bloomParser.add_argument("-l", "--local", dest="localPath", help="sets home directory.")
 bloomParser.add_argument("-e", "--ext", dest="extPath", help="sets external directory.")
@@ -26,7 +27,6 @@ try:
 
     if (bloomArgs.localPath):
         bloomFilterClient = setHome(bloomArgs.localPath, bloomFilterClient, bloomArgs.verbose)
-        print(bloomFilterClient.globalBloomFilter)
 
     if (bloomArgs.extPath):
         setExt(bloomArgs.extPath)
@@ -36,7 +36,8 @@ try:
             exit(0)
         moveLocaltoExt()
 
-except argparse.ArgumentError as e:
+except Exception as e:
     print(e)
+    exit(1)
 
     
