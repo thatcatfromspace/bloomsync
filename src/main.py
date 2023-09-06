@@ -1,5 +1,4 @@
 import argparse
-import tabnanny
 from listdir import listdir
 from check import check
 from setDirs import setHome, setExt
@@ -21,17 +20,23 @@ bloomParser.add_argument("-a", "--all", dest="all", help="iterate through all fi
 bloomParser.add_argument("-v", "--verbose", dest="verbose", help="perform operations verbosely.", action="store_true", default=False)
 bloomArgs = bloomParser.parse_args()
 
-if (bloomArgs.path):
-    listdir(bloomArgs.path)
+try: 
+    if (bloomArgs.path):
+        listdir(bloomArgs.path)
 
-if (bloomArgs.localPath):
-    bloomFilterClient = setHome(bloomArgs.localPath, bloomFilterClient, bloomArgs.verbose)
-    print(bloomFilterClient.globalBloomFilter)
+    if (bloomArgs.localPath):
+        bloomFilterClient = setHome(bloomArgs.localPath, bloomFilterClient, bloomArgs.verbose)
+        print(bloomFilterClient.globalBloomFilter)
 
-if (bloomArgs.extPath):
-    setExt(bloomArgs.extPath)
+    if (bloomArgs.extPath):
+        setExt(bloomArgs.extPath)
 
-if (bloomArgs.sync):
-    if not check():
-        exit(0)
-    moveLocaltoExt()
+    if (bloomArgs.sync):
+        if not check():
+            exit(0)
+        moveLocaltoExt()
+
+except argparse.ArgumentError as e:
+    print(e)
+
+    
