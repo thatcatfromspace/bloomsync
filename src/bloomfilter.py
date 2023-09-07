@@ -28,7 +28,7 @@ class BloomFilter:
         
         self.sum = 0
 
-    def searchBloomFilter(self, file) -> bool:
+    def searchBloomFilter(self, file: str | Path) -> bool:
         self.getSum(file)
         hash83 = self.mod83()
         hash89 = self.mod89()

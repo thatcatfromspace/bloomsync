@@ -1,1 +1,5 @@
-[2023-09-06 23:05:36.804015] /home/dinesh/code/ext/biatchhhh.txt does not exist, syncing.
+[2023-09-07 18:12:22.042610] /home/dinesh/code/local/biatchhhh.txt exists.
+[2023-09-07 18:12:22.042696] /home/dinesh/code/local/apple.txt does not exist, syncing.
+[2023-09-07 18:12:22.043277] /home/dinesh/code/local/ball.txt does not exist, syncing.
+[2023-09-07 18:12:22.043656] /home/dinesh/code/local/cat.txt does not exist, syncing.
+3 files copied, 1 files unchanged.
