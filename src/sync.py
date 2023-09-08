@@ -53,7 +53,6 @@ class BloomSync:
     def moveLocalToExt(self, filter: BloomFilter, verbose: bool) -> BloomFilter:
         with open("../logs.txt", "r+") as log:
             log.seek(0, 2)
-            log.write("Starting job")
             for file in self.extDir.iterdir():
                 filter.getSum(str(file).removeprefix(self.extDirStr + '/'))
                 filter.insertBloomFilter()
