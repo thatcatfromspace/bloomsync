@@ -1,7 +1,6 @@
 from bloomfilter import BloomFilter
 from pathlib import Path
 import json
-import os
 import shutil
 from datetime import datetime
 

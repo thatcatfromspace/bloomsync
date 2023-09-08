@@ -6,7 +6,7 @@
 [2023-09-08 06-59-48] /home/dinesh/code/local/yaml.c exists.
 [2023-09-08 06-59-48] /home/dinesh/code/local/elephant.txt exists.
 0 files copied, 7 files unchanged.
-Starting job[2023-09-08 06-59-48] /home/dinesh/code/ext/hkshvkhvf.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/hkshvkhvf.txt exists.
 [2023-09-08 06-59-48] /home/dinesh/code/ext/biatchhhh.txt exists.
 [2023-09-08 06-59-48] /home/dinesh/code/ext/apple.txt exists.
 [2023-09-08 06-59-48] /home/dinesh/code/ext/ball.txt exists.
