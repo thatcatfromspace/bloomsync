@@ -3,7 +3,8 @@ from pathlib import Path
 class BloomFilter:
     '''
     The BloomFilter classes encompasses a standard 100 bucket bloom filter
-    with 3 hashing functions.
+    with 3 hashing functions. For the current implementation, the modulus functions with 83,
+    89 and 97 are used. For wider applications, increase the number of buckets. 
     '''
     def __init__(self) -> None:
         self.globalBloomFilter = [0]*100

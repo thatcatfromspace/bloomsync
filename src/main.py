@@ -3,14 +3,15 @@ from listdir import listdir
 from check import check
 from setdirs import setHome, setExt
 from bloomfilter import BloomFilter
-from sync import moveLocaltoExt
+from sync import BloomSync
 
 # import tabnanny
 # tabnanny.check("/bloomsync")
 
 check()
 
-bloomFilterClient: BloomFilter = BloomFilter()
+bloomFilterArray: BloomFilter = BloomFilter()
+bloomFilterClient: BloomSync = BloomSync()
 
 bloomParser = argparse.ArgumentParser(description="Sync contents of two independent directories.", prog="bloomsync")
 bloomParser.add_argument("-ls", "--listdir", dest="path", help="list the contents of a directory.")
@@ -26,13 +27,14 @@ try:
         listdir(bloomArgs.path)
 
     if (bloomArgs.localPath):
-        bloomFilterClient = setHome(bloomArgs.localPath, bloomFilterClient, bloomArgs.verbose)
+        bloomFilterArray = setHome(bloomArgs.localPath, bloomFilterClient, bloomArgs.verbose)
 
     if (bloomArgs.extPath):
         setExt(bloomArgs.extPath)
 
     if (bloomArgs.sync):
-        bloomFilterClient = moveLocaltoExt(bloomFilterClient, bloomArgs.verbose)
+        bloomFilterArray = bloomFilterClient.moveExtToLocal(bloomFilterArray, bloomArgs.verbose)
+        bloomFilterArray = bloomFilterClient.moveLocalToExt(bloomFilterArray, bloomArgs.verbose)
 
 except Exception as e:
     print(e)
