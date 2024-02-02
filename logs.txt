@@ -1,3 +1,5 @@
+The following is a SAMPLE LOG file.
+
 [2023-09-08 06-59-48] /home/dinesh/code/local/biatchhhh.txt exists.
 [2023-09-08 06-59-48] /home/dinesh/code/local/apple.txt exists.
 [2023-09-08 06-59-48] /home/dinesh/code/local/ball.txt exists.
