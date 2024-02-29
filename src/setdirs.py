@@ -4,7 +4,7 @@ from pathlib import Path
 from check import check
 
 def setHome(path, filter: BloomFilter, verbose: bool) -> BloomFilter:
-    with open("../dirs.json", "r+") as bloomDir:
+    with open("/home/.bloomsync/dirs.json", "r+") as bloomDir:
         try:
             inObj = json.loads(bloomDir.read())
             extDir = inObj["external"]
@@ -36,7 +36,7 @@ def setHome(path, filter: BloomFilter, verbose: bool) -> BloomFilter:
     
 def setExt(path):
     try:    
-        with open("../dirs.json", "r+") as bloomDir:
+        with open("/home/.bloomsync/dirs.json", "r+") as bloomDir:
             inObj = json.loads(bloomDir.read())
             homeDir = inObj["home"]
             if path == homeDir and homeDir != "":

@@ -6,8 +6,8 @@ class BloomFilter:
     with 3 hashing functions. For the current implementation, the modulus functions with 83,
     89 and 97 are used. For wider applications, increase the number of buckets. 
     '''
-    def __init__(self) -> None:
-        self.globalBloomFilter = [0]*100
+    def __init__(self, bucketSize: int = 100) -> None:
+        self.globalBloomFilter = [0]*bucketSize
         self.sum = 0
     
     def getSum(self, file: str) -> None:

@@ -1,14 +1,21 @@
 import argparse
-from listdir import listdir
-from check import check
-from setdirs import setHome, setExt
 from bloomfilter import BloomFilter
+from check import check
+from listdir import listdir
+import logging
+import os
+from setdirs import setHome, setExt
 from sync import BloomSync
 
 # import tabnanny
 # tabnanny.check("/bloomsync")
 
+# using os.path.expanduser() to fetch home directory of current user
+logging.basicConfig(filename = f"{os.path.expanduser('~')}/.bloomsync/sync.log", encoding = "utf-8", level = logging.DEBUG)
+
+#pre-run checks for directory config
 check()
+
 
 bloomFilterArray: BloomFilter = BloomFilter()
 bloomFilterClient: BloomSync = BloomSync()
