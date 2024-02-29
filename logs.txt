@@ -1,0 +1,18 @@
+The following is a SAMPLE LOG file.
+
+[2023-09-08 06-59-48] /home/dinesh/code/local/biatchhhh.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/local/apple.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/local/ball.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/local/cat.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/local/hkshvkhvf.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/local/yaml.c exists.
+[2023-09-08 06-59-48] /home/dinesh/code/local/elephant.txt exists.
+0 files copied, 7 files unchanged.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/hkshvkhvf.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/biatchhhh.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/apple.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/ball.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/cat.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/elephant.txt exists.
+[2023-09-08 06-59-48] /home/dinesh/code/ext/yaml.c exists.
+0 files copied, 7 files unchanged.
