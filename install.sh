@@ -1,8 +1,6 @@
 # Shell script to initialize local and 
 # external directories and
 # set up cron job 
-<<<<<<< HEAD
-# read -p "Local directory: " local
 
 # python3 /home/dinesh/code/bloomsync/src/main.py ${local} 
 
@@ -24,4 +22,3 @@ read -p "External directory: " external
 
 python3 ./src/main.py -l ${local} -e ${external}
 python3 ./src/main.py --sync now 
->>>>>>> refs/remotes/origin/main
