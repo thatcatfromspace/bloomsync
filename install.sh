@@ -9,7 +9,7 @@ touch ~/dirs.json
 cp ./dirs_default.json ~/.bloomsync/dirs.json 
 touch ~/.bloomsync/sync.log
 =======
-git clone https://github.com/scaredyspacecat/bloomsync.git "bloomsync"
+git clone https://github.com/thatcatfromspace/bloomsync.git "bloomsync"
 cd bloomsync
 python3 -v
 
