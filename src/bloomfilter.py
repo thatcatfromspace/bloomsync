@@ -15,7 +15,7 @@ class BloomFilter:
             self.sum += ord(letter)
 
     def mod83(self) -> int:
-        return self.sum&83
+        return self.sum%83
         
     def mod89(self) -> int:
         return self.sum%89
